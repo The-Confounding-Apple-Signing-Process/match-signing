@@ -74,8 +74,6 @@ Pods/
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
 Tuist/Dependencies/Carthage*
 **/Credits.plist
-*.xcworkspace
-*.xcodeproj
 .sourcery.yml
 
 # fastlane
