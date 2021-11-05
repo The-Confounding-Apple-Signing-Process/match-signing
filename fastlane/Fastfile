@@ -18,27 +18,17 @@ default_platform(:ios)
 platform :ios do
   desc "Build a new app using match"
   lane :beta do
-    build_app(scheme: "MatchSigning")
-    #upload_to_testflight
-  end
-
-  desc "Build a new app using match"
-  lane :alpha do
     install_profiles_locally
 
-    update_code_signing_settings(
-      code_sign_identity: 'iPhone Distribution',
-      profile_name: "match AppStore com.allyouzombies.MatchSigning"
-    )
+    update_signing
 
     build_app(scheme: "MatchSigning")
+
     #upload_to_testflight
   end
 
   desc "Updated code sign details"
   lane :update_signing do
-    install_profiles_locally
-
     update_code_signing_settings(
       code_sign_identity: 'iPhone Distribution',
       profile_name: "match AppStore com.allyouzombies.MatchSigning"
